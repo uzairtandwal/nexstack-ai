@@ -70,10 +70,10 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_yywfx4a',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_wf0ac39',
         templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '9bTDSx4K693LKCBo6'
       ).catch(emailErr => {
         console.error("EmailJS catch-block error:", emailErr);
         throw new Error(`Email Service Error: ${emailErr?.text || emailErr?.message || 'Could not reach EmailJS'}`);
